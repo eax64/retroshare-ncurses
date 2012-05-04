@@ -42,7 +42,7 @@ void RSMenu::addItem(std::string name, void *ptr)
 	*/
 
 	_items = (ITEM**) realloc(_items, (_n + 1) * sizeof (*_items));
-	_items[_n] = new_item(name.c_str(), "");
+	_items[_n] = new_item((name == "") ? NULL : strdup(name.c_str()), "");
 	set_item_userptr(_items[_n], ptr);
 	_n++;
 }
@@ -63,7 +63,7 @@ void RSMenu::setTitle(std::string title)
 
 void RSMenu::create()
 {
-	addItem(NULL);
+	addItem("");
 	_menu = new_menu(_items);
 	_win = newwin(_h, _w, _y, _x);
 	_subwin =  derwin(_win, getmaxy(_win) - 4, getmaxx(_win) - 2, 3, 1);

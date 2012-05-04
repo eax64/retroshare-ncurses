@@ -39,7 +39,7 @@ void RSFriendsWindow::displayMenu(RSCli *cli)
 	menu->addItem("Main menu", (void*)displayMainMenu);
 	menu->addItem("List", (void*)displayList);
 	menu->addItem("Public chat", (void*)displayPublicChat);
-	menu->addItem(NULL);
+	menu->addItem("");
 
 	cli->getMainMenu()->setItem(menu->getItems());
 	cli->getMainMenu()->setTitle(menuTitle);
