@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	WINDOW *menuWin = NULL;
 	RSCli *cli = NULL;
 
-	QApplication app(argc, argv, false);
+	//QApplication app(argc, argv);
 
 	if (initResult < 0)
 		{

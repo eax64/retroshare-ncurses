@@ -164,9 +164,7 @@ void NotifyTxt::updatePublicChat()
 			QDateTime sendTime = QDateTime::fromTime_t(it->sendTime);
 			std::string name = rsPeers->getPeerName(it->rsid).c_str();
 			QString msg = QString::fromStdWString(it->msg);
-			QTextEdit editor;
-			editor.setHtml(msg);
-			std::string msgPlainTxt = editor.toPlainText().toStdString();
+			std::string msgPlainTxt = msg.replace(QRegExp("<[^>]*>"), "").toStdString();
 
 			std::cerr << "New message at " << sendTime.toString("hh:mm:ss").toStdString() << " from [" << name << "] : " << msgPlainTxt << std::endl;
 			_cli->friendsWindow->addChatLine(_cli, sendTime.toString("hh:mm:ss").toStdString() + " <" + name + "> " + msgPlainTxt);

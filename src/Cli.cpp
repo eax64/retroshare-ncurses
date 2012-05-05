@@ -120,10 +120,7 @@ void RSCli::handleKey(int c)
 						std::wstring ws;
 						ws.assign(_inputBuffer.begin(), _inputBuffer.end());
 
-						std::cerr << "_inputBuffer : " << _inputBuffer << std::endl;
-						//rsMsgs->sendPublicChat(ws);
-						rsMsgs->sendPublicChat(L"lorem ipsum");
-						std::cerr << "_inputBuffer : " << _inputBuffer << std::endl;
+						rsMsgs->sendPublicChat(ws);
 						_inputBuffer = "";
 						wdeleteln(inputWin);
 						wmove(inputWin, 0, 0);
